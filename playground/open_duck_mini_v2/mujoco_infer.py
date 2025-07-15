@@ -102,8 +102,20 @@ class MjInfer(MJInferBase):
 
         return obs
 
+
     def key_callback(self, keycode):
-        print(f"key: {keycode}")
+        #print(f"key: {keycode}")
+
+        # do nothing on not used keycode
+        if keycode not in [72, 265, 264, 263, 262, 81, 80, 69, 32]:
+            return 
+
+        if keycode == 32:
+            self.commands[0] = 0
+            self.commands[1] = 0
+            self.commands[2] = 0
+            return
+
         if keycode == 72:  # h
             self.head_control_mode = not self.head_control_mode
         lin_vel_x = 0
@@ -229,6 +241,23 @@ class MjInfer(MJInferBase):
                         # head_targets = self.commands[3:]
                         # self.motor_targets[5:9] = head_targets
                         self.data.ctrl = self.motor_targets.copy()
+
+
+                    # Get the center of mass position
+                    com_position = self.data.subtree_com[0]
+
+                    # Add a sphere marker for the center of mass
+                    viewer.user_scn.ngeom = 0
+                    mujoco.mjv_initGeom(
+                        viewer.user_scn.geoms[0],
+                        type=mujoco.mjtGeom.mjGEOM_SPHERE,
+                        size=np.array([0.01, 0, 0]),
+                        pos=com_position,
+                        mat=np.eye(3).flatten(),
+                        rgba=np.array([1.0, 0.0, 0.0, 0.5])  # Red, semi-transparent
+                    )
+                    viewer.user_scn.ngeom = 1
+
 
                     viewer.sync()
 

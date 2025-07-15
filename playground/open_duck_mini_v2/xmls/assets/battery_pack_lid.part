@@ -1,0 +1,13 @@
+{
+    "configuration": "default",
+    "documentId": "eea5e163f1f85e7bcebf6851",
+    "documentMicroversion": "1b689fe2bb61affaec097b32",
+    "elementId": "e4249c1fd4259ca69abb08e2",
+    "fullConfiguration": "default",
+    "id": "MvOQ01tQlVV+zSv63",
+    "isStandardContent": false,
+    "name": "battery_pack_lid <1>",
+    "partId": "RRPD",
+    "suppressed": false,
+    "type": "Part"
+}
