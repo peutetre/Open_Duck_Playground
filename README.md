@@ -104,11 +104,11 @@ uv run playground/open_duck_mini_v2/runner.py --task flat_terrain_backlash --num
 mjpython ./playground/open_duck_mini_v2/mujoco_infer.py -o BEST_WALK_ONNX_2.onnx  --model_path ./playground/open_duck_mini_v2/xmls/scene.xml
 ```
 
-tab: show settings ui
-w: wireframe
-ctrl+ double right click: track camera
-double click object: select object
-ctrl+right click drag: apply vector force
-ctrl+ click drag: apply torque on object
+- tab: show settings ui
+- w: wireframe
+- ctrl+ double right click: track camera
+- double click object: select object
+- ctrl+right click drag: apply vector force
+- ctrl+ click drag: apply torque on object
 
 
